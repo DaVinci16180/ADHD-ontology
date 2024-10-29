@@ -1,0 +1,1118 @@
+@prefix : <http://example.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.com#> .
+
+<http://example.com> rdf:type owl:Ontology ;
+                      owl:imports gufo: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com#hasSymptom
+:hasSymptom rdf:type owl:ObjectProperty ;
+            rdfs:domain :MedicalCondition ;
+            rdfs:range :Symptom .
+
+
+###  http://example.com#prescribes
+:prescribes rdf:type owl:ObjectProperty ;
+            rdfs:domain :Prescription ;
+            rdfs:range :MedicationTherapy .
+
+
+###  http://example.com#suffersFrom
+:suffersFrom rdf:type owl:ObjectProperty ;
+             rdfs:domain :Patient ;
+             rdfs:range :MedicalCondition .
+
+
+###  http://purl.org/nemo/gufo#externallyDependsOn
+gufo:externallyDependsOn rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/nemo/gufo#inheresIn
+gufo:inheresIn rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/nemo/gufo#mediates
+gufo:mediates rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com#dosage
+:dosage rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Medicine ;
+        rdfs:range xsd:string .
+
+
+###  http://example.com#hasDateOfBirth
+:hasDateOfBirth rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Person ;
+                rdfs:range xsd:dateTime .
+
+
+###  http://example.com#hasDocument
+:hasDocument rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Patient ;
+             rdfs:range xsd:string .
+
+
+###  http://example.com#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Person ;
+         rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com#ADHD
+:ADHD rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Class ;
+                            owl:unionOf ( :Combined
+                                          :PredominantlyHyperactive
+                                          :PredominantlyInattentive
+                                        )
+                          ] ;
+      rdfs:subClassOf :NeurologicallyBasedCondition .
+
+
+###  http://example.com#Adult
+:Adult rdf:type owl:Class ;
+       rdfs:subClassOf :Patient .
+
+
+###  http://example.com#BehavioralTherapy
+:BehavioralTherapy rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:IntrinsicMode ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty gufo:externallyDependsOn ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :Psychologist
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty gufo:inheresIn ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :Patient
+                                   ] .
+
+
+###  http://example.com#Combined
+:Combined rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :ADHD
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasSymptom ;
+                                                       owl:minQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass :HyperactivitySymptom
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasSymptom ;
+                                                       owl:minQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass :InattentionSymptom
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://example.com#Dextroamphetamine
+:Dextroamphetamine rdf:type owl:Class ;
+                   rdfs:subClassOf :Medicine ;
+                   owl:disjointWith :Methylphenidate .
+
+
+###  http://example.com#DifficultyAwaitingTurn
+:DifficultyAwaitingTurn rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( :DifficultyAwaitingTurn
+                                                        )
+                                            ] ;
+                        rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#DifficultyPlayingQuietly
+:DifficultyPlayingQuietly rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                owl:oneOf ( :DifficultyPlayingQuietly
+                                                          )
+                                              ] ;
+                          rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#DifficultySustainingAttention
+:DifficultySustainingAttention rdf:type owl:Class ;
+                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                     owl:oneOf ( :DifficultySustainingAttention
+                                                               )
+                                                   ] ;
+                               rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#DislikingLongTasks
+:DislikingLongTasks rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:oneOf ( :DislikingLongTasks
+                                                    )
+                                        ] ;
+                    rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#Disorganization
+:Disorganization rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( :Disorganization
+                                                 )
+                                     ] ;
+                 rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#Doctor
+:Doctor rdf:type owl:Class ;
+        rdfs:subClassOf :Person ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty [ owl:inverseOf gufo:mediates
+                                         ] ;
+                          owl:someValuesFrom :MedicalReport
+                        ] .
+
+
+###  http://example.com#EasilyDistracted
+:EasilyDistracted rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:oneOf ( :EasilyDistracted
+                                                  )
+                                      ] ;
+                  rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#ExcessiveTalking
+:ExcessiveTalking rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:oneOf ( :ExcessiveTalking
+                                                  )
+                                      ] ;
+                  rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#Female
+:Female rdf:type owl:Class ;
+        rdfs:subClassOf :Person ;
+        owl:disjointWith :Male .
+
+
+###  http://example.com#Forgetfulness
+:Forgetfulness rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( :Forgetfulness
+                                               )
+                                   ] ;
+               rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#HyperactivitySymptom
+:HyperactivitySymptom rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Class ;
+                                            owl:unionOf ( :DifficultyAwaitingTurn
+                                                          :DifficultyPlayingQuietly
+                                                          :ExcessiveTalking
+                                                          :OftenAnsweringBeforeQuestionsAreCompleted
+                                                          :OftenFidgeting
+                                                          :OftenInterruptingOthers
+                                                          :OftenLeavingSeat
+                                                          :OftenMoving
+                                                          :OftenRunningOrClimbing
+                                                        )
+                                          ] ;
+                      rdfs:subClassOf :Symptom .
+
+
+###  http://example.com#InattentionSymptom
+:InattentionSymptom rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:unionOf ( :DifficultySustainingAttention
+                                                        :DislikingLongTasks
+                                                        :Disorganization
+                                                        :EasilyDistracted
+                                                        :Forgetfulness
+                                                        :InattentionToDetails
+                                                        :NotFinishingTasks
+                                                        :NotListeningWhenSpokenToDirectly
+                                                        :OftenLosingThings
+                                                      )
+                                        ] ;
+                    rdfs:subClassOf :Symptom .
+
+
+###  http://example.com#InattentionToDetails
+:InattentionToDetails rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Class ;
+                                            owl:oneOf ( :InattentionToDetails
+                                                      )
+                                          ] ;
+                      rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#Male
+:Male rdf:type owl:Class ;
+      rdfs:subClassOf :Person .
+
+
+###  http://example.com#MedicalCondition
+:MedicalCondition rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#MedicalReport
+:MedicalReport rdf:type owl:Class ;
+               rdfs:subClassOf gufo:Relator ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty gufo:mediates ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Doctor
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty gufo:mediates ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MedicalCondition
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty gufo:mediates ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Patient
+                               ] .
+
+
+###  http://example.com#MedicationTherapy
+:MedicationTherapy rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:IntrinsicMode ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty gufo:externallyDependsOn ;
+                                     owl:someValuesFrom :Medicine
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty gufo:inheresIn ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :Patient
+                                   ] .
+
+
+###  http://example.com#Medicine
+:Medicine rdf:type owl:Class ;
+          rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#Methylphenidate
+:Methylphenidate rdf:type owl:Class ;
+                 rdfs:subClassOf :Medicine .
+
+
+###  http://example.com#Mild
+:Mild rdf:type owl:Class ;
+      rdfs:subClassOf :Severity .
+
+
+###  http://example.com#Moderate
+:Moderate rdf:type owl:Class ;
+          rdfs:subClassOf :Severity .
+
+
+###  http://example.com#NeurologicallyBasedCondition
+:NeurologicallyBasedCondition rdf:type owl:Class ;
+                              rdfs:subClassOf :MedicalCondition .
+
+
+###  http://example.com#NotFinishingTasks
+:NotFinishingTasks rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:oneOf ( :NotFinishingTasks
+                                                   )
+                                       ] ;
+                   rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#NotListeningWhenSpokenToDirectly
+:NotListeningWhenSpokenToDirectly rdf:type owl:Class ;
+                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                        owl:oneOf ( :NotListeningWhenSpokenToDirectly
+                                                                  )
+                                                      ] ;
+                                  rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#OftenAnsweringBeforeQuestionsAreCompleted
+:OftenAnsweringBeforeQuestionsAreCompleted rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:oneOf ( :OftenAnsweringBeforeQuestionsAreCompleted
+                                                                           )
+                                                               ] ;
+                                           rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#OftenFidgeting
+:OftenFidgeting rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( :OftenFidgeting
+                                                )
+                                    ] ;
+                rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#OftenInterruptingOthers
+:OftenInterruptingOthers rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Class ;
+                                               owl:oneOf ( :OftenInterruptingOthers
+                                                         )
+                                             ] ;
+                         rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#OftenLeavingSeat
+:OftenLeavingSeat rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:oneOf ( :OftenLeavingSeat
+                                                  )
+                                      ] ;
+                  rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#OftenLosingThings
+:OftenLosingThings rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:oneOf ( :OftenLosingThings
+                                                   )
+                                       ] ;
+                   rdfs:subClassOf :InattentionSymptom .
+
+
+###  http://example.com#OftenMoving
+:OftenMoving rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:oneOf ( :OftenMoving
+                                             )
+                                 ] ;
+             rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#OftenRunningOrClimbing
+:OftenRunningOrClimbing rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( :OftenRunningOrClimbing
+                                                        )
+                                            ] ;
+                        rdfs:subClassOf :HyperactivitySymptom .
+
+
+###  http://example.com#Patient
+:Patient rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://example.com#Person
+:Person rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Female
+                                            :Male
+                                          )
+                            ] ;
+        rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#PredominantlyHyperactive
+:PredominantlyHyperactive rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( :ADHD
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasSymptom ;
+                                                                       owl:minQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass :HyperactivitySymptom
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] .
+
+
+###  http://example.com#PredominantlyInattentive
+:PredominantlyInattentive rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( :ADHD
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasSymptom ;
+                                                                       owl:minQualifiedCardinality "6"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass :InattentionSymptom
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] .
+
+
+###  http://example.com#PreschoolAge
+:PreschoolAge rdf:type owl:Class ;
+              rdfs:subClassOf :Patient .
+
+
+###  http://example.com#Prescription
+:Prescription rdf:type owl:Class ;
+              rdfs:subClassOf gufo:Relator ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :prescribes ;
+                                owl:someValuesFrom :MedicationTherapy
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty gufo:mediates ;
+                                owl:someValuesFrom :Doctor
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty gufo:mediates ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Patient
+                              ] .
+
+
+###  http://example.com#Psychologist
+:Psychologist rdf:type owl:Class ;
+              rdfs:subClassOf :Person ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf gufo:externallyDependsOn
+                                               ] ;
+                                owl:someValuesFrom :BehavioralTherapy
+                              ] .
+
+
+###  http://example.com#SchoolAge
+:SchoolAge rdf:type owl:Class ;
+           rdfs:subClassOf :Patient .
+
+
+###  http://example.com#Severe
+:Severe rdf:type owl:Class ;
+        rdfs:subClassOf :Severity .
+
+
+###  http://example.com#Severity
+:Severity rdf:type owl:Class ;
+          rdfs:subClassOf gufo:IntrinsicMode ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty gufo:externallyDependsOn ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ADHD
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty gufo:inheresIn ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Patient
+                          ] .
+
+
+###  http://example.com#Symptom
+:Symptom rdf:type owl:Class ;
+         rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://example.com#Teenager
+:Teenager rdf:type owl:Class ;
+          rdfs:subClassOf :Patient .
+
+
+###  http://purl.org/nemo/gufo#Category
+gufo:Category rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#FunctionalComplex
+gufo:FunctionalComplex rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#IntrinsicMode
+gufo:IntrinsicMode rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Kind
+gufo:Kind rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#MaterialRelationshipType
+gufo:MaterialRelationshipType rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Mixin
+gufo:Mixin rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Phase
+gufo:Phase rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Relator
+gufo:Relator rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Role
+gufo:Role rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#SubKind
+gufo:SubKind rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.com#ADHD
+:ADHD rdf:type owl:NamedIndividual ,
+               gufo:Kind .
+
+
+###  http://example.com#ADHD1
+:ADHD1 rdf:type owl:NamedIndividual ,
+                :ADHD ;
+       :hasSymptom :DifficultyAwaitingTurn ,
+                   :DifficultyPlayingQuietly ,
+                   :ExcessiveTalking ,
+                   :OftenAnsweringBeforeQuestionsAreCompleted ,
+                   :OftenInterruptingOthers ,
+                   :OftenLosingThings ,
+                   :OftenMoving .
+
+
+###  http://example.com#ADHD2
+:ADHD2 rdf:type owl:NamedIndividual ,
+                :ADHD ;
+       :hasSymptom :DifficultySustainingAttention ,
+                   :EasilyDistracted ,
+                   :Forgetfulness ,
+                   :NotFinishingTasks ,
+                   :NotListeningWhenSpokenToDirectly ,
+                   :OftenLosingThings .
+
+
+###  http://example.com#ADHD3
+:ADHD3 rdf:type owl:NamedIndividual ,
+                :ADHD ;
+       :hasSymptom :DifficultySustainingAttention ,
+                   :DislikingLongTasks ,
+                   :InattentionToDetails ,
+                   :NotFinishingTasks ,
+                   :NotListeningWhenSpokenToDirectly ,
+                   :OftenAnsweringBeforeQuestionsAreCompleted ,
+                   :OftenFidgeting ,
+                   :OftenInterruptingOthers ,
+                   :OftenLeavingSeat ,
+                   :OftenLosingThings ,
+                   :OftenMoving ,
+                   :OftenRunningOrClimbing .
+
+
+###  http://example.com#Adult
+:Adult rdf:type owl:NamedIndividual ,
+                gufo:Phase .
+
+
+###  http://example.com#BehavioralTherapy
+:BehavioralTherapy rdf:type owl:NamedIndividual ,
+                            gufo:Kind .
+
+
+###  http://example.com#BehavioralTherapy1
+:BehavioralTherapy1 rdf:type owl:NamedIndividual ,
+                             :BehavioralTherapy ;
+                    gufo:externallyDependsOn :Psychologist1 ;
+                    gufo:inheresIn :Patient1 .
+
+
+###  http://example.com#BehavioralTherapy2
+:BehavioralTherapy2 rdf:type owl:NamedIndividual ,
+                             :BehavioralTherapy ;
+                    gufo:externallyDependsOn :Psychologist2 ;
+                    gufo:inheresIn :Patient4 .
+
+
+###  http://example.com#Combined
+:Combined rdf:type owl:NamedIndividual ,
+                   gufo:SubKind .
+
+
+###  http://example.com#Dextroamphetamine
+:Dextroamphetamine rdf:type owl:NamedIndividual ,
+                            gufo:SubKind .
+
+
+###  http://example.com#DifficultyAwaitingTurn
+:DifficultyAwaitingTurn rdf:type owl:NamedIndividual ,
+                                 :DifficultyAwaitingTurn .
+
+
+###  http://example.com#DifficultyPlayingQuietly
+:DifficultyPlayingQuietly rdf:type owl:NamedIndividual ,
+                                   :DifficultyPlayingQuietly .
+
+
+###  http://example.com#DifficultySustainingAttention
+:DifficultySustainingAttention rdf:type owl:NamedIndividual ,
+                                        :DifficultySustainingAttention .
+
+
+###  http://example.com#DislikingLongTasks
+:DislikingLongTasks rdf:type owl:NamedIndividual ,
+                             :DislikingLongTasks .
+
+
+###  http://example.com#Disorganization
+:Disorganization rdf:type owl:NamedIndividual ,
+                          :Disorganization .
+
+
+###  http://example.com#Doctor
+:Doctor rdf:type owl:NamedIndividual ,
+                 gufo:Role .
+
+
+###  http://example.com#Doctor1
+:Doctor1 rdf:type owl:NamedIndividual ,
+                  :Doctor ;
+         :hasName "Afonso" .
+
+
+###  http://example.com#Doctor2
+:Doctor2 rdf:type owl:NamedIndividual ,
+                  :Doctor ;
+         :hasName "Maria" .
+
+
+###  http://example.com#EasilyDistracted
+:EasilyDistracted rdf:type owl:NamedIndividual ,
+                           :EasilyDistracted .
+
+
+###  http://example.com#ExcessiveTalking
+:ExcessiveTalking rdf:type owl:NamedIndividual ,
+                           :ExcessiveTalking .
+
+
+###  http://example.com#Female
+:Female rdf:type owl:NamedIndividual ,
+                 gufo:SubKind .
+
+
+###  http://example.com#Forgetfulness
+:Forgetfulness rdf:type owl:NamedIndividual ,
+                        :Forgetfulness .
+
+
+###  http://example.com#GenericMedicalCondition
+:GenericMedicalCondition rdf:type owl:NamedIndividual ,
+                                  :MedicalCondition .
+
+
+###  http://example.com#HyperactivitySymptom
+:HyperactivitySymptom rdf:type owl:NamedIndividual ,
+                               gufo:Category .
+
+
+###  http://example.com#InattentionSymptom
+:InattentionSymptom rdf:type owl:NamedIndividual ,
+                             gufo:Category .
+
+
+###  http://example.com#InattentionToDetails
+:InattentionToDetails rdf:type owl:NamedIndividual ,
+                               :InattentionToDetails .
+
+
+###  http://example.com#Male
+:Male rdf:type owl:NamedIndividual ,
+               gufo:SubKind .
+
+
+###  http://example.com#MedicalCondition
+:MedicalCondition rdf:type owl:NamedIndividual ,
+                           gufo:Mixin .
+
+
+###  http://example.com#MedicalReport
+:MedicalReport rdf:type owl:NamedIndividual ,
+                        gufo:Kind .
+
+
+###  http://example.com#MedicalReport1
+:MedicalReport1 rdf:type owl:NamedIndividual ,
+                         :MedicalReport ;
+                gufo:mediates :ADHD1 ,
+                              :Doctor1 ,
+                              :Patient1 .
+
+
+###  http://example.com#MedicalReport2
+:MedicalReport2 rdf:type owl:NamedIndividual ,
+                         :MedicalReport ;
+                gufo:mediates :Doctor1 ,
+                              :GenericMedicalCondition ,
+                              :Patient2 .
+
+
+###  http://example.com#MedicalReport3
+:MedicalReport3 rdf:type owl:NamedIndividual ,
+                         :MedicalReport ;
+                gufo:mediates :ADHD2 ,
+                              :Doctor2 ,
+                              :Patient3 .
+
+
+###  http://example.com#MedicalReport4
+:MedicalReport4 rdf:type owl:NamedIndividual ,
+                         :MedicalReport ;
+                gufo:mediates :ADHD3 ,
+                              :Doctor2 ,
+                              :Patient4 .
+
+
+###  http://example.com#MedicationTherapy
+:MedicationTherapy rdf:type owl:NamedIndividual ,
+                            gufo:Kind .
+
+
+###  http://example.com#MedicationTherapy1
+:MedicationTherapy1 rdf:type owl:NamedIndividual ,
+                             :MedicationTherapy ;
+                    gufo:externallyDependsOn :Ritalina ;
+                    gufo:inheresIn :Patient1 .
+
+
+###  http://example.com#Medicine
+:Medicine rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  http://example.com#Methylphenidate
+:Methylphenidate rdf:type owl:NamedIndividual ,
+                          gufo:SubKind .
+
+
+###  http://example.com#Mild
+:Mild rdf:type owl:NamedIndividual ,
+               gufo:SubKind .
+
+
+###  http://example.com#Moderate
+:Moderate rdf:type owl:NamedIndividual ,
+                   gufo:SubKind .
+
+
+###  http://example.com#NeurologicallyBasedCondition
+:NeurologicallyBasedCondition rdf:type owl:NamedIndividual ,
+                                       gufo:Category .
+
+
+###  http://example.com#NotFinishingTasks
+:NotFinishingTasks rdf:type owl:NamedIndividual ,
+                            :NotFinishingTasks .
+
+
+###  http://example.com#NotListeningWhenSpokenToDirectly
+:NotListeningWhenSpokenToDirectly rdf:type owl:NamedIndividual ,
+                                           :NotListeningWhenSpokenToDirectly .
+
+
+###  http://example.com#OftenAnsweringBeforeQuestionsAreCompleted
+:OftenAnsweringBeforeQuestionsAreCompleted rdf:type owl:NamedIndividual ,
+                                                    :OftenAnsweringBeforeQuestionsAreCompleted .
+
+
+###  http://example.com#OftenFidgeting
+:OftenFidgeting rdf:type owl:NamedIndividual ,
+                         :OftenFidgeting .
+
+
+###  http://example.com#OftenInterruptingOthers
+:OftenInterruptingOthers rdf:type owl:NamedIndividual ,
+                                  :OftenInterruptingOthers .
+
+
+###  http://example.com#OftenLeavingSeat
+:OftenLeavingSeat rdf:type owl:NamedIndividual ,
+                           :OftenLeavingSeat .
+
+
+###  http://example.com#OftenLosingThings
+:OftenLosingThings rdf:type owl:NamedIndividual ,
+                            :OftenLosingThings .
+
+
+###  http://example.com#OftenMoving
+:OftenMoving rdf:type owl:NamedIndividual ,
+                      :OftenMoving .
+
+
+###  http://example.com#OftenRunningOrClimbing
+:OftenRunningOrClimbing rdf:type owl:NamedIndividual ,
+                                 :OftenRunningOrClimbing .
+
+
+###  http://example.com#Patient
+:Patient rdf:type owl:NamedIndividual ,
+                  gufo:Role .
+
+
+###  http://example.com#Patient0
+:Patient0 rdf:type owl:NamedIndividual ,
+                   :Patient .
+
+
+###  http://example.com#Patient1
+:Patient1 rdf:type owl:NamedIndividual ,
+                   :Patient ;
+          :hasDocument "111.111.111-11" ;
+          :hasName "Luiz" .
+
+
+###  http://example.com#Patient2
+:Patient2 rdf:type owl:NamedIndividual ,
+                   :Patient ,
+                   :PreschoolAge ;
+          :hasDocument "222.222.222-22" ;
+          :hasName "Lucas" .
+
+
+###  http://example.com#Patient3
+:Patient3 rdf:type owl:NamedIndividual ,
+                   :Patient ;
+          :hasDocument "333.333.333-33" ;
+          :hasName "Sara" .
+
+
+###  http://example.com#Patient4
+:Patient4 rdf:type owl:NamedIndividual ,
+                   :Patient ;
+          :hasDocument "444.444.444-44" ;
+          :hasName "Paula" .
+
+
+###  http://example.com#Person
+:Person rdf:type owl:NamedIndividual ,
+                 gufo:Kind .
+
+
+###  http://example.com#PredominantlyHyperactive
+:PredominantlyHyperactive rdf:type owl:NamedIndividual ,
+                                   gufo:SubKind .
+
+
+###  http://example.com#PredominantlyInattentive
+:PredominantlyInattentive rdf:type owl:NamedIndividual ,
+                                   gufo:SubKind .
+
+
+###  http://example.com#PreschoolAge
+:PreschoolAge rdf:type owl:NamedIndividual ,
+                       gufo:Phase .
+
+
+###  http://example.com#Prescription
+:Prescription rdf:type owl:NamedIndividual ,
+                       gufo:Kind .
+
+
+###  http://example.com#Prescription1
+:Prescription1 rdf:type owl:NamedIndividual ,
+                        :Prescription ;
+               :prescribes :MedicationTherapy1 ;
+               gufo:mediates :Doctor1 ,
+                             :Patient1 .
+
+
+###  http://example.com#Psychologist
+:Psychologist rdf:type owl:NamedIndividual ,
+                       gufo:Role .
+
+
+###  http://example.com#Psychologist1
+:Psychologist1 rdf:type owl:NamedIndividual ,
+                        :Psychologist ;
+               :hasName "Mauro" .
+
+
+###  http://example.com#Psychologist2
+:Psychologist2 rdf:type owl:NamedIndividual ,
+                        :Psychologist ;
+               :hasName "Joana" .
+
+
+###  http://example.com#Ritalina
+:Ritalina rdf:type owl:NamedIndividual ,
+                   :Methylphenidate ;
+          :dosage "10mg" .
+
+
+###  http://example.com#SchoolAge
+:SchoolAge rdf:type owl:NamedIndividual ,
+                    gufo:Phase .
+
+
+###  http://example.com#Severe
+:Severe rdf:type owl:NamedIndividual ,
+                 gufo:SubKind .
+
+
+###  http://example.com#Severity
+:Severity rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  http://example.com#Symptom
+:Symptom rdf:type owl:NamedIndividual ,
+                  gufo:Mixin .
+
+
+###  http://example.com#Teenager
+:Teenager rdf:type owl:NamedIndividual ,
+                   gufo:Phase .
+
+
+###  http://example.com#Venvanse
+:Venvanse rdf:type owl:NamedIndividual ,
+                   :Dextroamphetamine ;
+          :dosage "30mg" .
+
+
+###  http://example.com#suffersFrom
+:suffersFrom rdf:type owl:NamedIndividual ,
+                      gufo:MaterialRelationshipType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:ADHD rdfs:label "ADHD"@en .
+
+
+:Adult rdfs:label "Adult"@en .
+
+
+:BehavioralTherapy rdfs:label "Behavioral Therapy"@en .
+
+
+:Combined rdfs:label "Combined"@en .
+
+
+:Dextroamphetamine rdfs:label "Dextroamphetamine "@en .
+
+
+:Doctor rdfs:label "Doctor"@en .
+
+
+:Female rdfs:label "Female"@en .
+
+
+:HyperactivitySymptom rdfs:label "Hyperactivity Symptom"@en .
+
+
+:InattentionSymptom rdfs:label "Inattention Symptom"@en .
+
+
+:Male rdfs:label "Male"@en .
+
+
+:MedicalCondition rdfs:label "Medical Condition"@en .
+
+
+:MedicalReport rdfs:label "Medical Report"@en .
+
+
+:MedicationTherapy rdfs:label "Medication Therapy"@en .
+
+
+:Medicine rdfs:label "Medicine"@en .
+
+
+:Methylphenidate rdfs:label "Methylphenidate "@en .
+
+
+:Mild rdfs:label "Mild"@en .
+
+
+:Moderate rdfs:label "Moderate"@en .
+
+
+:NeurologicallyBasedCondition rdfs:label "Neurologically Based Condition"@en .
+
+
+:Patient rdfs:label "Patient"@en .
+
+
+:Person rdfs:label "Person"@en .
+
+
+:PredominantlyHyperactive rdfs:label "Predominantly Hyperactive"@en .
+
+
+:PredominantlyInattentive rdfs:label "Predominantly Inattentive"@en .
+
+
+:PreschoolAge rdfs:label "Preschool Age"@en .
+
+
+:Prescription rdfs:label "Prescription"@en .
+
+
+:Psychologist rdfs:label "Psychologist"@en .
+
+
+:SchoolAge rdfs:label "School Age"@en .
+
+
+:Severe rdfs:label "Severe"@en .
+
+
+:Severity rdfs:label "Severity"@en .
+
+
+:Symptom rdfs:label "Symptom"@en .
+
+
+:Teenager rdfs:label "Teenager"@en .
+
+
+:suffersFrom rdfs:label "/suffers-from"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DifficultyAwaitingTurn
+                :DifficultyPlayingQuietly
+                :ExcessiveTalking
+                :OftenAnsweringBeforeQuestionsAreCompleted
+                :OftenFidgeting
+                :OftenInterruptingOthers
+                :OftenLeavingSeat
+                :OftenMoving
+                :OftenRunningOrClimbing
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DifficultySustainingAttention
+                :DislikingLongTasks
+                :Disorganization
+                :EasilyDistracted
+                :Forgetfulness
+                :InattentionToDetails
+                :NotFinishingTasks
+                :NotListeningWhenSpokenToDirectly
+                :OftenLosingThings
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

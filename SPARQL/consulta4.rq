@@ -1,0 +1,23 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://example.com#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Recupera todos os pacientes fazendo terapia comportamental e os
+# psicólogos correspondentes.
+
+SELECT DISTINCT
+	(STR(?patientName)      AS ?patient_name)
+	(STR(?psychologistName) AS ?psychologist_name)
+WHERE {
+	?patient rdf:type :Patient;
+	         :hasName ?patientName.
+	
+	?therapy rdf:type :BehavioralTherapy;
+	         gufo:inheresIn ?patient;
+	         gufo:externallyDependsOn ?psychologist.
+
+	?psychologist :hasName ?psychologistName.
+}

@@ -1,0 +1,44 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://example.com#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Recupera todos os pacientes fazendo algum tipo de terapia,
+# seja medicamentosa ou comportamental. Nos casos de terapia
+# medicamentosa, retorna o medicamento, e nos casos de terapia
+# comportamental, o psicólogo responsável.
+
+SELECT DISTINCT
+	(STR(?patientName) AS ?patient_name)
+	(?medicine AS ?medication_therapy)
+	(STR(?psychologistName) AS ?behavioral_therapy)
+WHERE {
+	?patient rdf:type :Patient;
+	         :hasName ?patientName.
+	
+	OPTIONAL {
+		?medicationTherapy rdf:type :MedicationTherapy;
+		                   gufo:inheresIn ?patient;
+		                   gufo:externallyDependsOn ?medicine.
+	}
+	
+	OPTIONAL {
+		?behavioralTherapy rdf:type :BehavioralTherapy;
+		                   gufo:inheresIn ?patient;
+		                   gufo:externallyDependsOn ?psychologist.
+
+		?psychologist :hasName ?psychologistName.
+	}
+
+    # Recupera do conjunto dos pacientes fazendo terapia medicamentosa
+    # unido dos pacientes fazendo terapia comportamental. Dessa forma,
+    # pacientes que não fazem nenhum tipo de terapia não são retornados.
+
+	{ ?medicationTherapy gufo:inheresIn ?patient. }
+
+	UNION
+
+	{ ?behavioralTherapy gufo:inheresIn ?patient. }
+}

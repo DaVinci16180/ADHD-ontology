@@ -1,0 +1,29 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://example.com#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Recupera todos os pacientes com TDAH do tipo predominatemente hiperativo.
+# Por causa da forma que está implementado no protegé, executar sem o MINUS
+# retorna também os pacientes do tipo combinado.
+
+# Esta query funciona melhor com o reasoner ligado. Caso contrário, somente
+# serão retornadas instâncias diretas de PredominantlyHyperactive.
+
+# Esta consulta pode ser facilmente modificada para buscar pacientes com TDAH
+# dos tipos predominatemente desatento ou combinado.
+
+SELECT (STR(?patientName) AS ?patient_name)
+WHERE {
+	?patient rdf:type :Patient;
+	         :hasName ?patientName.
+	
+	?report rdf:type :MedicalReport;
+	        gufo:mediates ?patient;
+	        gufo:mediates ?condition.
+	
+	?condition rdf:type :PredominantlyHyperactive.
+    MINUS { ?condition rdf:type :PredominantlyInattentive. }
+}
