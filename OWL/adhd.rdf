@@ -1,0 +1,1732 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://adhd.com#"
+     xml:base="http://adhd.com"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:gufo="http://purl.org/nemo/gufo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://adhd.com"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://adhd.com#hasBirthSex -->
+
+    <owl:ObjectProperty rdf:about="http://adhd.com#hasBirthSex">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://adhd.com#Patient"/>
+        <rdfs:range rdf:resource="http://adhd.com#BirthSex"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://adhd.com#hasSeverity -->
+
+    <owl:ObjectProperty rdf:about="http://adhd.com#hasSeverity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://adhd.com#Severity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://adhd.com#isGreaterThan -->
+
+    <owl:ObjectProperty rdf:about="http://adhd.com#isGreaterThan">
+        <owl:inverseOf rdf:resource="http://adhd.com#isLessThan"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://adhd.com#Severity"/>
+        <rdfs:range rdf:resource="http://adhd.com#Severity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://adhd.com#isLessThan -->
+
+    <owl:ObjectProperty rdf:about="http://adhd.com#isLessThan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://adhd.com#Severity"/>
+        <rdfs:range rdf:resource="http://adhd.com#Severity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://adhd.com#prescribes -->
+
+    <owl:ObjectProperty rdf:about="http://adhd.com#prescribes">
+        <rdfs:domain rdf:resource="http://adhd.com#Prescription"/>
+        <rdfs:range rdf:resource="http://adhd.com#MedicationTherapy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://adhd.com#suffersFrom -->
+
+    <owl:ObjectProperty rdf:about="http://adhd.com#suffersFrom">
+        <rdfs:domain rdf:resource="http://adhd.com#Patient"/>
+        <rdfs:range rdf:resource="http://adhd.com#MedicalCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#externallyDependsOn -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/nemo/gufo#externallyDependsOn"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#inheresIn -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/nemo/gufo#inheresIn"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#mediates -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/nemo/gufo#mediates"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://adhd.com#hasDateOfBirth -->
+
+    <owl:DatatypeProperty rdf:about="http://adhd.com#hasDateOfBirth">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://adhd.com#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://adhd.com#hasDocument -->
+
+    <owl:DatatypeProperty rdf:about="http://adhd.com#hasDocument">
+        <rdfs:domain rdf:resource="http://adhd.com#Patient"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://adhd.com#hasEmissionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://adhd.com#hasEmissionDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://adhd.com#MedicalReport"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://adhd.com#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://adhd.com#hasName">
+        <rdfs:domain rdf:resource="http://adhd.com#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://adhd.com#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://adhd.com#hasValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://adhd.com#Severity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://adhd.com#isSatisfied -->
+
+    <owl:DatatypeProperty rdf:about="http://adhd.com#isSatisfied">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#CriterionA"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionB"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionC"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionD"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionE"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://adhd.com#ADHD -->
+
+    <owl:Class rdf:about="http://adhd.com#ADHD">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#NeurologicallyBasedCondition"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="http://adhd.com#CriterionA1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="http://adhd.com#CriterionA2"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="http://adhd.com#CriterionB"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="http://adhd.com#CriterionC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="http://adhd.com#CriterionD"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="http://adhd.com#CriterionE"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#ADHDCriteria -->
+
+    <owl:Class rdf:about="http://adhd.com#ADHDCriteria">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#CriterionA"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionB"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionC"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionD"/>
+                    <rdf:Description rdf:about="http://adhd.com#CriterionE"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#ADHD"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://adhd.com#isSatisfied"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Adult -->
+
+    <owl:Class rdf:about="http://adhd.com#Adult">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Patient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#BehavioralTherapy -->
+
+    <owl:Class rdf:about="http://adhd.com#BehavioralTherapy">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#IntrinsicMode"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#externallyDependsOn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#Psychologist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#Patient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#BirthSex -->
+
+    <owl:Class rdf:about="http://adhd.com#BirthSex">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#Female"/>
+                    <rdf:Description rdf:about="http://adhd.com#Male"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#ADHDCriteria"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionB"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionC"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionD"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionE"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1 -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#CriterionA"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1a -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1a">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1b -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1b">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1c -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1c">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1d -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1d">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1e -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1e">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1f -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1f">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1g -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1g">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1h -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1h">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA1i -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA1i">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#HyperactivitySymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2 -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#CriterionA"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://adhd.com#InattentionSymptom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2a -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2a">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2b -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2b">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2c -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2c">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2d -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2d">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2e -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2e">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2f -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2f">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2g -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2g">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2h -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2h">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionA2i -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionA2i">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionB -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionB">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#ADHDCriteria"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionC"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionD"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionE"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionC -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionC">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#ADHDCriteria"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionD"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionE"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionD -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionD">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#ADHDCriteria"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#CriterionE"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#CriterionE -->
+
+    <owl:Class rdf:about="http://adhd.com#CriterionE">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#ADHDCriteria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Dextroamphetamine -->
+
+    <owl:Class rdf:about="http://adhd.com#Dextroamphetamine">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Medicine"/>
+        <owl:disjointWith rdf:resource="http://adhd.com#Methylphenidate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Doctor -->
+
+    <owl:Class rdf:about="http://adhd.com#Doctor">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#HyperactivitySymptom -->
+
+    <owl:Class rdf:about="http://adhd.com#HyperactivitySymptom">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/nemo/gufo#FunctionalComplex"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://adhd.com#hasSeverity"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://adhd.com#Severity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://adhd.com#CriterionA1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://adhd.com#InattentionSymptom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#InattentionSymptom -->
+
+    <owl:Class rdf:about="http://adhd.com#InattentionSymptom">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/nemo/gufo#FunctionalComplex"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://adhd.com#hasSeverity"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://adhd.com#Severity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://adhd.com#CriterionA2"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#MedicalCondition -->
+
+    <owl:Class rdf:about="http://adhd.com#MedicalCondition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#MedicalReport -->
+
+    <owl:Class rdf:about="http://adhd.com#MedicalReport">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:someValuesFrom rdf:resource="http://adhd.com#Doctor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:someValuesFrom rdf:resource="http://adhd.com#MedicalCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#Patient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#MedicationTherapy -->
+
+    <owl:Class rdf:about="http://adhd.com#MedicationTherapy">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#IntrinsicMode"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#externallyDependsOn"/>
+                <owl:someValuesFrom rdf:resource="http://adhd.com#Medicine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#inheresIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#Patient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Medicine -->
+
+    <owl:Class rdf:about="http://adhd.com#Medicine">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Methylphenidate -->
+
+    <owl:Class rdf:about="http://adhd.com#Methylphenidate">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Medicine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#NeurologicallyBasedCondition -->
+
+    <owl:Class rdf:about="http://adhd.com#NeurologicallyBasedCondition">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#MedicalCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Patient -->
+
+    <owl:Class rdf:about="http://adhd.com#Patient">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://adhd.com#suffersFrom"/>
+                <owl:someValuesFrom rdf:resource="http://adhd.com#MedicalCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://adhd.com#hasBirthSex"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#BirthSex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Person -->
+
+    <owl:Class rdf:about="http://adhd.com#Person">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://adhd.com#hasName"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://adhd.com#hasDateOfBirth"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#PreschoolAge -->
+
+    <owl:Class rdf:about="http://adhd.com#PreschoolAge">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Patient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Prescription -->
+
+    <owl:Class rdf:about="http://adhd.com#Prescription">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://adhd.com#prescribes"/>
+                <owl:someValuesFrom rdf:resource="http://adhd.com#MedicationTherapy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#Doctor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://adhd.com#Patient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Psychologist -->
+
+    <owl:Class rdf:about="http://adhd.com#Psychologist">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#SchoolAge -->
+
+    <owl:Class rdf:about="http://adhd.com#SchoolAge">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Patient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Severity -->
+
+    <owl:Class rdf:about="http://adhd.com#Severity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://adhd.com#Severity1"/>
+                    <rdf:Description rdf:about="http://adhd.com#Severity2"/>
+                    <rdf:Description rdf:about="http://adhd.com#Severity3"/>
+                    <rdf:Description rdf:about="http://adhd.com#Severity4"/>
+                    <rdf:Description rdf:about="http://adhd.com#Severity5"/>
+                    <rdf:Description rdf:about="http://adhd.com#Severity6"/>
+                    <rdf:Description rdf:about="http://adhd.com#Severity7"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://adhd.com#Teenager -->
+
+    <owl:Class rdf:about="http://adhd.com#Teenager">
+        <rdfs:subClassOf rdf:resource="http://adhd.com#Patient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Category -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Category"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#FunctionalComplex -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#FunctionalComplex"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#IntrinsicMode -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#IntrinsicMode"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Kind -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Kind"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#MaterialRelationshipType -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Mixin -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Mixin"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Phase -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Phase"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Quality -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Quality"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Relator -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Relator"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#Role -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#Role"/>
+    
+
+
+    <!-- http://purl.org/nemo/gufo#SubKind -->
+
+    <owl:Class rdf:about="http://purl.org/nemo/gufo#SubKind"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://adhd.com#A1a -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#A1a">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA1a"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#CriterionA_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#A1b -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#A1b">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA1b"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#CriterionA_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#A1c -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#A1c">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA1c"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#CriterionA_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#A1d -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#A1d">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA1d"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#CriterionA_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#A1e -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#A1e">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA1e"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#CriterionA_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#A1f -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#A1f">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA1f"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#CriterionA_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#ADHD -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#ADHD">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Adult -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Adult">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Phase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#BehavioralTherapy -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#BehavioralTherapy">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#BirthSex -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#BirthSex">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Condition -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Condition">
+        <rdf:type rdf:resource="http://adhd.com#NeurologicallyBasedCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1a -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1a">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1b -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1b">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1c -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1c">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1d -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1d">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1e -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1e">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1f -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1f">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1g -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1g">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1h -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1h">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA1i -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA1i">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2a -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2a">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2b -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2b">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2c -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2c">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2d -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2d">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2e -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2e">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2f -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2f">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2g -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2g">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2h -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2h">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA2i -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA2i">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionA_1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionA_1">
+        <rdf:type rdf:resource="http://adhd.com#CriterionA"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#Condition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionB -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionB">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionB_1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionB_1">
+        <rdf:type rdf:resource="http://adhd.com#CriterionB"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#Condition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionC -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionC">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionC_1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionC_1">
+        <rdf:type rdf:resource="http://adhd.com#CriterionC"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#Condition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionD -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionD">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionD_1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionD_1">
+        <rdf:type rdf:resource="http://adhd.com#CriterionD"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#Condition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionE -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionE">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#CriterionE_1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#CriterionE_1">
+        <rdf:type rdf:resource="http://adhd.com#CriterionE"/>
+        <gufo:inheresIn rdf:resource="http://adhd.com#Condition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Dextroamphetamine -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Dextroamphetamine">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Doctor -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Doctor">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Doctor1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Doctor1">
+        <rdf:type rdf:resource="http://adhd.com#Doctor"/>
+        <hasName>William Praxedes</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Female -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Female">
+        <rdf:type rdf:resource="http://adhd.com#BirthSex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#HyperactivitySymptom -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#HyperactivitySymptom">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#InattentionSymptom -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#InattentionSymptom">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Male -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Male">
+        <rdf:type rdf:resource="http://adhd.com#BirthSex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#MedicalCondition -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#MedicalCondition">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Mixin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#MedicalReport -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#MedicalReport">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#MedicationTherapy -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#MedicationTherapy">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Medicine -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Medicine">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Methylphenidate -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Methylphenidate">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#NeurologicallyBasedCondition -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#NeurologicallyBasedCondition">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Patient -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Patient">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Patient1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Patient1">
+        <rdf:type rdf:resource="http://adhd.com#Patient"/>
+        <hasBirthSex rdf:resource="http://adhd.com#Male"/>
+        <hasDateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2001-08-07T00:00:00.000</hasDateOfBirth>
+        <hasDocument>doc</hasDocument>
+        <hasName>Davi</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Person -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Person">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#PreschoolAge -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#PreschoolAge">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Phase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Prescription -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Prescription">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Psychologist -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Psychologist">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#SchoolAge -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#SchoolAge">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Phase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity1 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity1">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <isLessThan rdf:resource="http://adhd.com#Severity2"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity2 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity2">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <isLessThan rdf:resource="http://adhd.com#Severity3"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity3 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity3">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <isLessThan rdf:resource="http://adhd.com#Severity4"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity4 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity4">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <isLessThan rdf:resource="http://adhd.com#Severity5"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity5 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity5">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <isLessThan rdf:resource="http://adhd.com#Severity6"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity6 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity6">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <isLessThan rdf:resource="http://adhd.com#Severity7"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Severity7 -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Severity7">
+        <rdf:type rdf:resource="http://adhd.com#Severity"/>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#Teenager -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#Teenager">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Phase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://adhd.com#suffersFrom -->
+
+    <owl:NamedIndividual rdf:about="http://adhd.com#suffersFrom">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://adhd.com#ADHD">
+        <rdfs:label xml:lang="en">ADHD</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Adult">
+        <rdfs:label xml:lang="en">Adult</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#BehavioralTherapy">
+        <rdfs:label xml:lang="en">Behavioral Therapy</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#BirthSex">
+        <rdfs:label xml:lang="en">Birth Sex</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA">
+        <rdfs:label xml:lang="en">Criterion A</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1">
+        <rdfs:label xml:lang="en">Criterion A1</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1a">
+        <rdfs:label xml:lang="en">Criterion A1a</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1b">
+        <rdfs:label xml:lang="en">Criterion A1b</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1c">
+        <rdfs:label xml:lang="en">Criterion A1c</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1d">
+        <rdfs:label xml:lang="en">Criterion A1d</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1e">
+        <rdfs:label xml:lang="en">Criterion A1e</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1f">
+        <rdfs:label xml:lang="en">Criterion A1f</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1g">
+        <rdfs:label xml:lang="en">Criterion A1g</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1h">
+        <rdfs:label xml:lang="en">Criterion A1h</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA1i">
+        <rdfs:label xml:lang="en">Criterion A1i</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2">
+        <rdfs:label xml:lang="en">Criterion A2</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2a">
+        <rdfs:label xml:lang="en">Criterion A2a</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2b">
+        <rdfs:label xml:lang="en">Criterion A2b</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2c">
+        <rdfs:label xml:lang="en">Criterion A2c</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2d">
+        <rdfs:label xml:lang="en">Criterion A2d</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2e">
+        <rdfs:label xml:lang="en">Criterion A2e</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2f">
+        <rdfs:label xml:lang="en">Criterion A2f</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2g">
+        <rdfs:label xml:lang="en">Criterion A2g</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2h">
+        <rdfs:label xml:lang="en">Criterion A2h</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionA2i">
+        <rdfs:label xml:lang="en">Criterion A2i</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionB">
+        <rdfs:label xml:lang="en">Criterion B</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionC">
+        <rdfs:label xml:lang="en">Criterion C</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionD">
+        <rdfs:label xml:lang="en">Criterion D</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#CriterionE">
+        <rdfs:label xml:lang="en">Criterion E</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Dextroamphetamine">
+        <rdfs:label xml:lang="en">Dextroamphetamine </rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Doctor">
+        <rdfs:label xml:lang="en">Doctor</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#HyperactivitySymptom">
+        <rdfs:label xml:lang="en">Hyperactivity Symptom</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#InattentionSymptom">
+        <rdfs:label xml:lang="en">Inattention Symptom</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#MedicalCondition">
+        <rdfs:label xml:lang="en">Medical Condition</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#MedicalReport">
+        <rdfs:label xml:lang="en">Medical Report</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#MedicationTherapy">
+        <rdfs:label xml:lang="en">Medication Therapy</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Medicine">
+        <rdfs:label xml:lang="en">Medicine</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Methylphenidate">
+        <rdfs:label xml:lang="en">Methylphenidate </rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#NeurologicallyBasedCondition">
+        <rdfs:label xml:lang="en">Neurologically Based Condition</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Patient">
+        <rdfs:label xml:lang="en">Patient</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Person">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#PreschoolAge">
+        <rdfs:label xml:lang="en">Preschool Age</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Prescription">
+        <rdfs:label xml:lang="en">Prescription</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Psychologist">
+        <rdfs:label xml:lang="en">Psychologist</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#SchoolAge">
+        <rdfs:label xml:lang="en">School Age</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Severity">
+        <rdfs:label xml:lang="en">Severity</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#Teenager">
+        <rdfs:label xml:lang="en">Teenager</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://adhd.com#suffersFrom">
+        <rdfs:label xml:lang="en">/suffers-from</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://adhd.com#Adult"/>
+            <rdf:Description rdf:about="http://adhd.com#PreschoolAge"/>
+            <rdf:Description rdf:about="http://adhd.com#SchoolAge"/>
+            <rdf:Description rdf:about="http://adhd.com#Teenager"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1a"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1b"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1c"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1d"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1e"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1f"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1g"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1h"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA1i"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2a"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2b"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2c"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2d"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2e"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2f"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2g"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2h"/>
+            <rdf:Description rdf:about="http://adhd.com#CriterionA2i"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://adhd.com#Doctor"/>
+            <rdf:Description rdf:about="http://adhd.com#Patient"/>
+            <rdf:Description rdf:about="http://adhd.com#Psychologist"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
