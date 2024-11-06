@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Ontology Browser</title>
+<meta http-equiv='content-type' content='text/html;charset=UTF-8'>
+<link rel='stylesheet' href='../css/default.css' type='text/css' />
+</head>
+
+<body>
+
+<div id='tabs'>
+<a href='../ontologies/index.html' class='' >Ontologies</a>
+<a href='index.html' class='' >Classes</a>
+<a href='../objectproperties/index.html' class='' >Object Properties</a>
+<a href='../dataproperties/index.html' class='' >Data Properties</a>
+<a href='../annotationproperties/index.html' class='' >Annotation Properties</a>
+<a href='../individuals/index.html' class='' >Individuals</a>
+<a href='../datatypes/index.html' class='' >Datatypes</a>
+<a href='../cloud/' class='' >Clouds</a>
+</div> <!-- tabs -->
+
+
+<div class='summary'><h2>Class: Patient</h2>
+
+<div id='annotations_(2)'>
+<h4>Annotations (2)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="../annotationproperties/comment___1501100887.html" class='Annotation Property' title="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</a> <span class='literal'>"1. synonym for a subject of care (ISO/TR 21835:2020, 3.12).2. living being (person or animal) undergoing a medical, surgical or dental procedure (IEC 60601-1:2005, definition 3.76). 3. person seeking to receive or receiving healthcare (ISO 22956:2021, 3.1). 4. one or more persons scheduled to receive, receiving, or having received a health service (ISO/TS 14441:2013, 3.53)."</span></li>
+<li class="asserted"><a href="../annotationproperties/label___653429740.html" class='Annotation Property' title="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> <span class='literal'>"Patient"</span> <span style='color: black;'>@en</span></li>
+</ul>
+</div>
+</div><!-- annotations (2) -->
+
+
+<div id='superclasses_(3)'>
+<h4>Superclasses (3)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="Person___1967669396.html" class='Class' title="http://adhd.com#Person">Person</a></li>
+<li class="asserted"><a href="../objectproperties/suffersFrom___-1910716819.html" class='Object Property' title="http://adhd.com#suffersFrom">/suffers-from</a> <span class='some'>some</span> <a href="MedicalCondition___-113065271.html" class='Class' title="http://adhd.com#MedicalCondition">'Medical&nbsp;Condition'</a></li>
+<li class="asserted"><a href="../objectproperties/hasBirthSex___-770598656.html" class='Object Property' title="http://adhd.com#hasBirthSex">hasBirthSex</a> <span class='exactly'>exactly</span> 1 <a href="BirthSex___714555494.html" class='Class' title="http://adhd.com#BirthSex">'Birth&nbsp;Sex'</a></li>
+</ul>
+</div>
+</div><!-- superclasses (3) -->
+
+
+<div id='disjoints_(3)'>
+<h4>Disjoints (3)</h4>
+<div class='codebox'>
+<span class="asserted"><a href="Doctor___1632908894.html" class='Class' title="http://adhd.com#Doctor">Doctor</a></span>,
+<span class="asserted"><span class='Class active-entity'>Patient</span></span>,
+<span class="asserted"><a href="Psychologist___-531430631.html" class='Class' title="http://adhd.com#Psychologist">Psychologist</a></span></div>
+</div><!-- disjoints (3) -->
+
+
+<div id='members_(1)'>
+<h4>Members (1)</h4>
+<div class='codebox'>
+<span class="asserted"><a href="../individuals/Patient1___881038091.html" class='Individual' title="http://adhd.com#Patient1">Patient1</a></span></div>
+</div><!-- members (1) -->
+
+
+<div id='usage_(7)'>
+<h4>Usage (7)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="BehavioralTherapy___1264108715.html" class='Class' title="http://adhd.com#BehavioralTherapy">'Behavioral&nbsp;Therapy'</a> <span class='keyword'>&sube;</span> <a href="../objectproperties/inheresIn___-671409503.html" class='Object Property' title="http://purl.org/nemo/gufo#inheresIn">inheresIn</a> <span class='exactly'>exactly</span> 1 <span class='Class active-entity'>Patient</span></li>
+<li class="asserted"><a href="MedicalReport___-1634773980.html" class='Class' title="http://adhd.com#MedicalReport">'Medical&nbsp;Report'</a> <span class='keyword'>&sube;</span> <a href="../objectproperties/mediates___-14664164.html" class='Object Property' title="http://purl.org/nemo/gufo#mediates">mediates</a> <span class='exactly'>exactly</span> 1 <span class='Class active-entity'>Patient</span></li>
+<li class="asserted"><a href="MedicationTherapy___-1237173351.html" class='Class' title="http://adhd.com#MedicationTherapy">'Medication&nbsp;Therapy'</a> <span class='keyword'>&sube;</span> <a href="../objectproperties/inheresIn___-671409503.html" class='Object Property' title="http://purl.org/nemo/gufo#inheresIn">inheresIn</a> <span class='exactly'>exactly</span> 1 <span class='Class active-entity'>Patient</span></li>
+<li class="asserted"><a href="Prescription___205173081.html" class='Class' title="http://adhd.com#Prescription">Prescription</a> <span class='keyword'>&sube;</span> <a href="../objectproperties/mediates___-14664164.html" class='Object Property' title="http://purl.org/nemo/gufo#mediates">mediates</a> <span class='exactly'>exactly</span> 1 <span class='Class active-entity'>Patient</span></li>
+<li class="asserted"><a href="../objectproperties/hasBirthSex___-770598656.html" class='Object Property' title="http://adhd.com#hasBirthSex">hasBirthSex</a> <span class='keyword'>Domain</span> <span class='Class active-entity'>Patient</span></li>
+<li class="asserted"><a href="../objectproperties/suffersFrom___-1910716819.html" class='Object Property' title="http://adhd.com#suffersFrom">/suffers-from</a> <span class='keyword'>Domain</span> <span class='Class active-entity'>Patient</span></li>
+<li class="asserted"><a href="../dataproperties/hasDocument___-978237708.html" class='Data Property' title="http://adhd.com#hasDocument">hasDocument</a> <span class='keyword'>Domain</span> <span class='Class active-entity'>Patient</span></li>
+</ul>
+</div>
+</div><!-- usage (7) -->
+
+</div> <!-- summary -->
+<p class='footer'>
+<a href='http://code.google.com/p/ontology-browser/' target='_blank'>OWL HTML inside</a>
+</p>
+</body>
+</html>

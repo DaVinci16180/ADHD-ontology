@@ -985,97 +985,128 @@ gufo:SubKind rdf:type owl:Class .
 #    Annotations
 #################################################################
 
-:ADHD rdfs:label "ADHD"@en .
+:ADHD rdfs:comment "1. ADHD is a neurodevelopmental disorder defined by impairing levels of inattention, disorganization, and/or hyperactivity-impulsivity (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+      rdfs:label "ADHD"@en .
 
 
-:Adult rdfs:label "Adult"@en .
+:Adult rdfs:comment "1. person who is sixteen years old or older (ISO/TS 20458:2023, 3.3)." ;
+       rdfs:label "Adult"@en .
 
 
-:BehavioralTherapy rdfs:label "Behavioral Therapy"@en .
+:BehavioralTherapy rdfs:comment "1. (behavioural method) method that quantifies or represents human behaviour in response to an environment (ISO 28802:2012, 3.2)." ;
+                   rdfs:label "Behavioral Therapy"@en .
 
 
-:BirthSex rdfs:label "Birth Sex"@en .
+:BirthSex rdfs:comment "1. (sex) state of being male or female as it relates to biological factors such as DNA, anatomy and physiology (ISO/IEC TR 22116:2021, 3.18). 2. (sex) biological category based on reproductive, anatomical and genetic characteristics; Note 1 to entry: Includes the broad categories of male, female and intersex; Note 2 to entry: Typically, within health care settings the only officially recognized and assigned at birth categories are female and male categories, which becomes part of someone’s official government record and societally assumed gender (ISO/TR 9143:2023, 3.1.1)." ;
+          rdfs:label "Birth Sex"@en .
 
 
-:CriterionA rdfs:label "Criterion A"@en .
+:CriterionA rdfs:comment "1. A persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development, as characterized by (1) and/or (2) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+            rdfs:label "Criterion A"@en .
 
 
-:CriterionA1 rdfs:label "Criterion A1"@en .
+:CriterionA1 rdfs:comment "1. Inattention: Six (or more) of the following symptoms have persisted for at least 6 months to a degree that is inconsistent with developmental level and that negatively impacts directly on social and academic/occupational activities (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+             rdfs:label "Criterion A1"@en .
 
 
-:CriterionA1a rdfs:label "Criterion A1a"@en .
+:CriterionA1a rdfs:comment "1. Often fails to give close attention to details or makes careless mistakes in schoolwork, at work, or during other activities (e.g., overlooks or misses details, work is inaccurate) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1a"@en .
 
 
-:CriterionA1b rdfs:label "Criterion A1b"@en .
+:CriterionA1b rdfs:comment "1. Often has difficulty sustaining attention in tasks or play activities (e.g., has difficulty remaining focused during lectures, conversations, or lengthy reading) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1b"@en .
 
 
-:CriterionA1c rdfs:label "Criterion A1c"@en .
+:CriterionA1c rdfs:comment "1. Often does not seem to listen when spoken to directly (e.g., mind seems elsewhere, even in the absence of any obvious distraction) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1c"@en .
 
 
-:CriterionA1d rdfs:label "Criterion A1d"@en .
+:CriterionA1d rdfs:comment "1. Often does not follow through on instructions and fails to finish schoolwork, chores, or duties in the workplace (e.g., starts tasks but quickly loses focus and is easily sidetracked) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1d"@en .
 
 
-:CriterionA1e rdfs:label "Criterion A1e"@en .
+:CriterionA1e rdfs:comment "1. Often has difficulty organizing tasks and activities (e.g., difficulty managing sequential tasks; difficulty keeping materials and belongings in order; messy, disorganized work; has poor time management; fails to meet deadlines) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1e"@en .
 
 
-:CriterionA1f rdfs:label "Criterion A1f"@en .
+:CriterionA1f rdfs:comment "1. Often avoids, dislikes, or is reluctant to engage in tasks that require sustained mental effort (e.g., schoolwork or homework; for older adolescents and adults, preparing reports, completing forms, reviewing lengthy papers) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1f"@en .
 
 
-:CriterionA1g rdfs:label "Criterion A1g"@en .
+:CriterionA1g rdfs:comment "1. Often loses things necessary for tasks or activities (e.g., school materials, pencils, books, tools, wallets, keys, paperwork, eyeglasses, mobile telephones) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1g"@en .
 
 
-:CriterionA1h rdfs:label "Criterion A1h"@en .
+:CriterionA1h rdfs:comment "1. Is often easily distracted by extraneous stimuli (for older adolescents and adults, may include unrelated thoughts) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1h"@en .
 
 
-:CriterionA1i rdfs:label "Criterion A1i"@en .
+:CriterionA1i rdfs:comment "1. Is often forgetful in daily activities (e.g., doing chores, running errands; for older adolescents and adults, returning calls, paying bills, keeping appointments) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A1i"@en .
 
 
-:CriterionA2 rdfs:label "Criterion A2"@en .
+:CriterionA2 rdfs:comment "1. Hyperactivity and impulsivity: Six (or more) of the following symptoms have persisted for at least 6 months to a degree that is inconsistent with developmental level and that negatively impacts directly on social and academic/occupational activities (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+             rdfs:label "Criterion A2"@en .
 
 
-:CriterionA2a rdfs:label "Criterion A2a"@en .
+:CriterionA2a rdfs:comment "1. Often fidgets with or taps hands or feet or squirms in seat (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2a"@en .
 
 
-:CriterionA2b rdfs:label "Criterion A2b"@en .
+:CriterionA2b rdfs:comment "1. Often leaves seat in situations when remaining seated is expected (e.g., leaves his or her place in the classroom, in the office or other workplace, or in other situations that require remaining in place) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2b"@en .
 
 
-:CriterionA2c rdfs:label "Criterion A2c"@en .
+:CriterionA2c rdfs:comment "1. Often runs about or climbs in situations where it is inappropriate. (Note: In adolescents or adults, may be limited to feeling restless.) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2c"@en .
 
 
-:CriterionA2d rdfs:label "Criterion A2d"@en .
+:CriterionA2d rdfs:comment "1. Often unable to play or engage in leisure activities quietly (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2d"@en .
 
 
-:CriterionA2e rdfs:label "Criterion A2e"@en .
+:CriterionA2e rdfs:comment "1. Is often “on the go,” acting as if “driven by a motor” (e.g., is unable to be or uncomfortable being still for extended time, as in restaurants, meetings; may be experienced by others as being restless or difficult to keep up with) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2e"@en .
 
 
-:CriterionA2f rdfs:label "Criterion A2f"@en .
+:CriterionA2f rdfs:comment "1. Often talks excessively (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2f"@en .
 
 
-:CriterionA2g rdfs:label "Criterion A2g"@en .
+:CriterionA2g rdfs:comment "1. Often blurts out an answer before a question has been completed (e.g., completes people’s sentences; cannot wait for turn in conversation) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2g"@en .
 
 
-:CriterionA2h rdfs:label "Criterion A2h"@en .
+:CriterionA2h rdfs:comment "1. Often has difficulty waiting his or her turn (e.g., while waiting in line) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2h"@en .
 
 
-:CriterionA2i rdfs:label "Criterion A2i"@en .
+:CriterionA2i rdfs:comment "1. Often interrupts or intrudes on others (e.g., butts into conversations, games, or activities; may start using other people’s things without asking or receiving permission; for adolescents and adults, may intrude into or take over what others are doing) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+              rdfs:label "Criterion A2i"@en .
 
 
-:CriterionB rdfs:label "Criterion B"@en .
+:CriterionB rdfs:comment "1. Several inattentive or hyperactive-impulsive symptoms were present prior to age 12 years (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+            rdfs:label "Criterion B"@en .
 
 
-:CriterionC rdfs:label "Criterion C"@en .
+:CriterionC rdfs:comment "1. Several inattentive or hyperactive-impulsive symptoms are present in two or more settings (e.g., at home, school, or work; with friends or relatives; in other activities) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+            rdfs:label "Criterion C"@en .
 
 
-:CriterionD rdfs:label "Criterion D"@en .
+:CriterionD rdfs:comment "1. There is clear evidence that the symptoms interfere with, or reduce the quality of, social, academic, or occupational functioning (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+            rdfs:label "Criterion D"@en .
 
 
-:CriterionE rdfs:label "Criterion E"@en .
+:CriterionE rdfs:comment "1. The symptoms do not occur exclusively during the course of schizophrenia or another psychotic disorder and are not better explained by another mental disorder (e.g., mood disorder, anxiety disorder, dissociative disorder, personality disorder, substance intoxication or withdrawal) (AMERICAN PSYCHIATRIC ASSOCIATION, 2013)." ;
+            rdfs:label "Criterion E"@en .
 
 
-:Dextroamphetamine rdfs:label "Dextroamphetamine "@en .
+:Dextroamphetamine rdfs:comment "1. (amphetamine) any of several types of drug used as a stimulant (= a substance that makes the mind or body more active) (Cambridge Dictionary, 2024)." ;
+                   rdfs:label "Dextroamphetamine "@en .
 
 
-:Doctor rdfs:label "Doctor"@en .
+:Doctor rdfs:comment "1. (physician) health professional who has successfully completed the prescribed course of studies in medicine in a recognised medical school and who has met the qualifications for licensure in the practice of medicine set by the state or country in which they are practicing (ISO/TR 12773-1:2009, 2.36)." ;
+        rdfs:label "Doctor"@en .
 
 
 :HyperactivitySymptom rdfs:label "Hyperactivity Symptom"@en .
@@ -1084,46 +1115,60 @@ gufo:SubKind rdf:type owl:Class .
 :InattentionSymptom rdfs:label "Inattention Symptom"@en .
 
 
-:MedicalCondition rdfs:label "Medical Condition"@en .
+:MedicalCondition rdfs:comment "1. (medical and mental condition) full health, or deviation from full health, including use of compensating aids, use and influence of medication, alcohol or drugs, and incapacitation for other reasons (ISO 12353-1:2020, 4.4.4.4)." ;
+                  rdfs:label "Medical Condition"@en .
 
 
-:MedicalReport rdfs:label "Medical Report"@en .
+:MedicalReport rdfs:comment "1. (medical diagnosis) determination of which disease or condition explains a person’s signs and symptoms (ISO 18104:2023(en), 3.7.2). 2. (report) written document that describes an interpretation of the assessment (3.2) result for an individual or group for each intended use (ISO 10667-2:2020, 3.22). 3. (report) account given of a matter after investigation or consideration (ISO 10209:2022, 3.10.143)." ;
+               rdfs:label "Medical Report"@en .
 
 
-:MedicationTherapy rdfs:label "Medication Therapy"@en .
+:MedicationTherapy rdfs:comment "1. (medication) substance that has an intended therapeutic effect on a patient and can influence the medication safety of a patient (ISO/TR 20831:2017, 3.5). 2. API(s) alone or API(s) formulated with excipients(s) (ISO 20072:2009(en), 3.27)." ;
+                   rdfs:label "Medication Therapy"@en .
 
 
-:Medicine rdfs:label "Medicine"@en .
+:Medicine rdfs:comment "1. (medicinal product) active pharmaceutical ingredient (3.1), in its final form for administration to the patient (e.g. tablet, solution, spray), that is intended to prevent, diagnose or treat disease and that achieves its principal intended action in or on the body by pharmacological, immunological or metabolic means (ISO 12417-1:2024(en), 3.8)." ;
+          rdfs:label "Medicine"@en .
 
 
-:Methylphenidate rdfs:label "Methylphenidate "@en .
+:Methylphenidate rdfs:comment "1. (methylphenidate hydrochloride) A drug used to treat certain behavior disorders, such as attention deficit hyperactivity disorder (ADHD). It is also being studied as a way to improve brain function in patients treated with anticancer drugs. Methylphenidate hydrochloride acts on certain parts of the brain (National Cancer Institute, 2024)." ;
+                 rdfs:label "Methylphenidate "@en .
 
 
-:NeurologicallyBasedCondition rdfs:label "Neurologically Based Condition"@en .
+:NeurologicallyBasedCondition rdfs:comment "1. (neurologically) in a way that relates to the nerves or brain (Cambridge Dictionary, 2024). 2. (based) used to form adjectives showing the main place or area in which something or someone works, lives, or does business (Cambridge Dictionary, 2024). 3. (medical and mental condition) full health, or deviation from full health, including use of compensating aids, use and influence of medication, alcohol or drugs, and incapacitation for other reasons (ISO 12353-1:2020, 4.4.4.4)." ;
+                              rdfs:label "Neurologically Based Condition"@en .
 
 
-:Patient rdfs:label "Patient"@en .
+:Patient rdfs:comment "1. synonym for a subject of care (ISO/TR 21835:2020, 3.12).2. living being (person or animal) undergoing a medical, surgical or dental procedure (IEC 60601-1:2005, definition 3.76). 3. person seeking to receive or receiving healthcare (ISO 22956:2021, 3.1). 4. one or more persons scheduled to receive, receiving, or having received a health service (ISO/TS 14441:2013, 3.53)." ;
+         rdfs:label "Patient"@en .
 
 
-:Person rdfs:label "Person"@en .
+:Person rdfs:comment "1. human being (ISO/IEC TS 29003:2018, 3.12). 2. entity, i.e. a natural or legal person, recognized by law as having legal rights and duties, able to make commitment(s), assume and fulfil resulting obligation(s), and able to be held accountable for its action(s) (ISO/IEC 14662:2010, 3.24)." ;
+        rdfs:label "Person"@en .
 
 
-:PreschoolAge rdfs:label "Preschool Age"@en .
+:PreschoolAge rdfs:comment "1. (preschooler) a child who is not old enough to go to formal school (Cambridge Dictionary, 2024). 2. (preschool) of or relating to children who are between about three and five years old and have not yet gone to school, and their activities (Cambridge Dictionary, 2024)." ;
+              rdfs:label "Preschool Age"@en .
 
 
-:Prescription rdfs:label "Prescription"@en .
+:Prescription rdfs:comment "1. direction created by an authorized health professional to instruct a dispensing agent regarding the preparation and use of a medicinal product or medicinal appliance to be taken or used by a subject of care (ISO/TS 19256:2016, 3.34)." ;
+              rdfs:label "Prescription"@en .
 
 
-:Psychologist rdfs:label "Psychologist"@en .
+:Psychologist rdfs:comment "1. someone who studies the human mind and human emotions and behaviour, and how different situations have an effect on people (Cambridge Dictionary, 2024)." ;
+              rdfs:label "Psychologist"@en .
 
 
-:SchoolAge rdfs:label "School Age"@en .
+:SchoolAge rdfs:comment "1. (elementary school) education that is considered to be the first stage of “basic education”; Note 1 to entry: Primary education typically covers six years of full-time schooling with the legal age of entrance normally being not younger than 5 years or older than 7 years. Primary education typically lasts until ages 10–12. Primary education refers to children aged 5–12 years or 1st grade through to 5th or 6th grade, as defined by local education systems.(ISO 37120:2018, 3.9)." ;
+           rdfs:label "School Age"@en .
 
 
-:Severity rdfs:label "Severity"@en .
+:Severity rdfs:comment "1. measure of the possible consequences of a hazard (ISO 22679:2021, 3.30). 2. gravity of possible consequence of nonconformity (ISO 24096-1:2024, 3.4). 3. level of potential harm (ISO 14798:2009, 2.15)." ;
+          rdfs:label "Severity"@en .
 
 
-:Teenager rdfs:label "Teenager"@en .
+:Teenager rdfs:comment "1. a young person between 13 and 19 years old (Cambridge Dictionary, 2024)." ;
+          rdfs:label "Teenager"@en .
 
 
 :suffersFrom rdfs:label "/suffers-from"@en .
